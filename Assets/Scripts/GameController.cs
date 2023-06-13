@@ -47,4 +47,21 @@ public class GameController : MonoBehaviour
         AddCash(-amount);
     }
 
+    public void AddMultiplier(float amount)
+    {
+        _multiplier = (int)(_multiplier / amount);
+        if (_multiplier < 1)
+            _multiplier = 1;
+    }
+
+    public void RemoveMultiplier(int amount)
+    {
+        AddMultiplier(1 / amount);
+    }
+
+    public bool IsCashEnough(int price)
+    {
+        return _cash >= price;
+    }
+
 }

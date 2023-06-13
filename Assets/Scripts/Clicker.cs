@@ -43,12 +43,11 @@ public class Clicker : MonoBehaviour
     private void Start()
     {
         _cashAmount = _baseCashAmount;
-        _cashAmountText.text = "$" + _cashAmount.ToString();
 
         _timeToClickSlider.maxValue = _clickInterval;
         _timeToClickSlider.value = _clickTimer;
 
-        UpdateMultiplierUI();
+        UpdateUI();
 
         TimeCounter.OnFrameUpdateIvent += UpdateTimeToClick;
         _gController.OnScoreChangeEvent += UpdateCashToUpgrate;
@@ -66,41 +65,36 @@ public class Clicker : MonoBehaviour
 
     public void UpgrateCashAmount()
     {
-        if (_gController.GetCash >= _priceMultiplierUpgrate)
+        if (_gController.IsCashEnough(_priceMultiplierUpgrate))
         {
             _cashMultiplier++;
             _cashAmount = _baseCashAmount * _cashMultiplier;
             _gController.SubstractCash(_priceMultiplierUpgrate);
-            _priceMultiplierUpgrate *= 3;
+            _priceMultiplierUpgrate += (int)(_cashAmount * 5 / _clickInterval);
 
-            UpdateMultiplierUI();
-
-            if (_gController.GetCash < _priceMultiplierUpgrate)
-            {
-                _upgrateButton.interactable = false;
-                _isReadyToUpgrate = false;
-                UpdateCashToUpgrate();
-            }
+            UpdateUI();
         }
     }
 
-    private void UpdateMultiplierUI()
+    private void UpdateUI()
     {
         _priceMultiplierText.text = "$" + _priceMultiplierUpgrate.ToString();
         _multiplierText.text = "x" + _cashMultiplier.ToString();
         _cashToUpdateSlider.maxValue = _priceMultiplierUpgrate;
+        _cashAmountText.text = "$" + _cashAmount.ToString();
     }
 
     public void UpdateCashToUpgrate()
     {
-        if (!_isReadyToUpgrate)
+        if (!_gController.IsCashEnough(_priceMultiplierUpgrate))
         {
-            if (_gController.GetCash >= _priceMultiplierUpgrate)
-            {
-                _isReadyToUpgrate = true;
-                _upgrateButton.interactable = true;
-            }
             _cashToUpdateSlider.value = _gController.GetCash;
+        }
+        if (_isReadyToUpgrate != _gController.IsCashEnough(_priceMultiplierUpgrate))
+        {
+            _upgrateButton.interactable = !_isReadyToUpgrate;
+            _cashToUpdateSlider.value = _gController.GetCash;
+            _isReadyToUpgrate = !_isReadyToUpgrate;
         }
     }
 
@@ -121,7 +115,4 @@ public class Clicker : MonoBehaviour
             }
         }
     }
-
-
-
 }
