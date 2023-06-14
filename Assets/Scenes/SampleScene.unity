@@ -2102,7 +2102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 261079617, guid: 36aee870ce5cd0d40988a524daf8487c, type: 3}
       propertyPath: _baseCashAmount
-      value: 500
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5187747599748157659, guid: 36aee870ce5cd0d40988a524daf8487c, type: 3}
       propertyPath: m_AnchorMax.x
