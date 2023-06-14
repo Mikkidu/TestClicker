@@ -278,6 +278,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterPrice
+      value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterWorkTime
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8661490660916043337, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -649,6 +657,14 @@ PrefabInstance:
     - target: {fileID: 8004103872585664395, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterPrice
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterMultiplier
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8661490660916043337, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: m_TargetGraphic
@@ -1902,6 +1918,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterPrice
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterMultiplier
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8661490660916043337, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -2076,6 +2100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1607138622}
     m_Modifications:
+    - target: {fileID: 261079617, guid: 36aee870ce5cd0d40988a524daf8487c, type: 3}
+      propertyPath: _baseCashAmount
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5187747599748157659, guid: 36aee870ce5cd0d40988a524daf8487c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
