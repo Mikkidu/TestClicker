@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4297899978018817570}
   - component: {fileID: 8024557708896357476}
   m_Layer: 5
-  m_Name: PtriceText
+  m_Name: PriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 795482629385600218}
   m_HandleRect: {fileID: 0}
@@ -590,7 +590,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 8004103872585664395}
   m_HandleRect: {fileID: 0}
@@ -720,11 +720,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5817994092249491670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8330912760802320254}
+        m_TargetAssemblyTypeName: CashBooster, Assembly-CSharp
+        m_MethodName: SwitchOnBoost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5869547934171196004
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +910,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a7ca3323a8c8a48b1042d831040385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boosterPriceText: {fileID: 8024557708896357476}
+  _boosterMultiplierText: {fileID: 5708894134521126422}
+  _enableBoosterButton: {fileID: 2812952491363175914}
+  _cashToBoosterSlider: {fileID: 8661490660916043337}
+  _reloadBoosterSlider: {fileID: 1030489181976981150}
+  _boosterPrice: 20
+  _boosterMultiplier: 2
+  _boosterWorkTime: 5
+  _boosterReloadTime: 10
 --- !u!1 &7020746141997375393
 GameObject:
   m_ObjectHideFlags: 0

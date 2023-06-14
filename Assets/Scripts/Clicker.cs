@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Clicker : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _cashMultiplierText;
     [SerializeField] private TextMeshProUGUI _cashAmountText;
     [SerializeField] private TextMeshProUGUI _priceMultiplierText;
     [SerializeField] private TextMeshProUGUI _multiplierText;
@@ -28,10 +28,6 @@ public class Clicker : MonoBehaviour
 
     private GameController _gController;
 
-    private void Awake()
-    {
-        _gController = GameController.instance;
-    }
 
     public void Initialize(int baseCash, int priceUpgrate, float clickInterval)
     {
@@ -42,15 +38,15 @@ public class Clicker : MonoBehaviour
 
     private void Start()
     {
+        _gController = GameController.instance;
         _cashAmount = _baseCashAmount;
 
         _timeToClickSlider.maxValue = _clickInterval;
         _timeToClickSlider.value = _clickTimer;
 
         UpdateUI();
-
         TimeCounter.OnFrameUpdateIvent += UpdateTimeToClick;
-        _gController.OnScoreChangeEvent += UpdateCashToUpgrate;
+        GameController.instance.OnScoreChangeEvent += UpdateCashToUpgrate;
 
     }
 
@@ -73,15 +69,16 @@ public class Clicker : MonoBehaviour
             _priceMultiplierUpgrate += (int)(_cashAmount * 5 / _clickInterval);
 
             UpdateUI();
+            
         }
     }
 
     private void UpdateUI()
     {
-        _priceMultiplierText.text = "$" + _priceMultiplierUpgrate.ToString();
-        _multiplierText.text = "x" + _cashMultiplier.ToString();
+        _priceMultiplierText.text = "$" + ConvertNumber(_priceMultiplierUpgrate);
+        _multiplierText.text = "x" + ConvertNumber(_cashMultiplier);
         _cashToUpdateSlider.maxValue = _priceMultiplierUpgrate;
-        _cashAmountText.text = "$" + _cashAmount.ToString();
+        _cashAmountText.text = "$" + ConvertNumber(_cashAmount);
     }
 
     public void UpdateCashToUpgrate()
@@ -114,5 +111,10 @@ public class Clicker : MonoBehaviour
                 _clickButton.interactable = true;
             }
         }
+    }
+
+    private string ConvertNumber(int number)
+    {
+        return NumbersConverter.ConvertNumber(number);
     }
 }

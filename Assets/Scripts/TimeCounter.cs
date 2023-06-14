@@ -7,7 +7,6 @@ public class TimeCounter : MonoBehaviour
     public delegate void OnUpdate(float deltatime);
     public static OnUpdate OnFrameUpdateIvent;
 
-    // Update is called once per frame
     void Update()
     {
         if (OnFrameUpdateIvent != null)

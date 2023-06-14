@@ -33,6 +33,7 @@ public class PanelCreator : MonoBehaviour
     {
         _panelPrice *= _priceRateIncrease;
         _panelCashPerSecond *= _cashRateIncrease;
+        
         _maxClickInterval++;
         transform.SetParent(_panelsParentTransform.parent);
         transform.SetParent(_panelsParentTransform);
@@ -46,16 +47,17 @@ public class PanelCreator : MonoBehaviour
             Clicker clickPanel = Instantiate(_clickerPrefab, _panelsParentTransform);
             float interval = Random.Range(_minClickInterval, _maxClickInterval);
             int cashAmount = (int)(_panelCashPerSecond * interval);
+            int freezePrice = _panelPrice;
             clickPanel.Initialize(cashAmount, cashAmount * 5, interval);
-            _gController.SubstractCash(_panelPrice);
 
             RefreshSelf();
+            _gController.SubstractCash(freezePrice);
         }
     }
 
     private void UpdateUI()
     {
-        _panelPriceText.text = _panelPrice.ToString();
+        _panelPriceText.text = "$" + ConvertNumber(_panelPrice);
         _cashToCreateSlider.maxValue = _panelPrice;
     }
 
@@ -77,5 +79,10 @@ public class PanelCreator : MonoBehaviour
         _createButton.interactable = isReady;
         _cashToCreateSlider.gameObject.SetActive(!isReady);
         _isReadyToCreate = isReady;
+    }
+
+    private string ConvertNumber(int number)
+    {
+        return NumbersConverter.ConvertNumber(number);
     }
 }

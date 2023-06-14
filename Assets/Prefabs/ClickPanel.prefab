@@ -304,7 +304,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -397,7 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c500058c4ce70b4a8a04023ceccb59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cashMultiplierText: {fileID: 7480705564778072390}
   _cashAmountText: {fileID: 94772796976372030}
   _priceMultiplierText: {fileID: 5167364197682518836}
   _multiplierText: {fileID: 7480705564778072390}
@@ -405,9 +404,9 @@ MonoBehaviour:
   _cashToUpdateSlider: {fileID: 5825710931041077529}
   _clickButton: {fileID: 8220743037205878898}
   _upgrateButton: {fileID: 1144832979065068218}
-  _baseCashAmount: 1
+  _baseCashAmount: 600
   _priceMultiplierUpgrate: 5
-  _clickInterval: 2
+  _clickInterval: 1.5
 --- !u!1 &7911563379639113261
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +731,10 @@ PrefabInstance:
       value: Update
       objectReference: {fileID: 0}
     - target: {fileID: 8004103872585664395, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004103872585664395, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -753,6 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4408091133366476437, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+    - {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7bdf73cde3470940a814202646822fa, type: 3}
 --- !u!114 &1144832979065068218 stripped
 MonoBehaviour:

@@ -30,38 +30,47 @@ public class GameController : MonoBehaviour
 
     public void Start()
     {
-        _cashText.text = "$" + _cash.ToString();
-        _multiplierText.text = "x" + _multiplier.ToString();
+        _cashText.text = "$" + ConvertNumber(_cash);
+        _multiplierText.text = "x" + ConvertNumber(_multiplier);
     }
 
     public void AddCash(int amount)
     {
-        _cash += amount;
-        _cashText.text = "$" + _cash.ToString();
+        _cash += amount * _multiplier;
+        _cashText.text = "$" + ConvertNumber(_cash);
         if (OnScoreChangeEvent != null)
             OnScoreChangeEvent.Invoke();
     }
 
     public void SubstractCash(int amount)
     {
-        AddCash(-amount);
+        _cash -= amount;
+        _cashText.text = "$" + ConvertNumber(_cash);
+        if (OnScoreChangeEvent != null)
+            OnScoreChangeEvent.Invoke();
     }
 
     public void AddMultiplier(float amount)
     {
-        _multiplier = (int)(_multiplier / amount);
+        _multiplier = (int)(_multiplier * amount);
         if (_multiplier < 1)
             _multiplier = 1;
+        _multiplierText.text = "X" + ConvertNumber(_multiplier);
     }
 
     public void RemoveMultiplier(int amount)
     {
-        AddMultiplier(1 / amount);
+        AddMultiplier(1f / amount);
     }
 
     public bool IsCashEnough(int price)
     {
         return _cash >= price;
+    }
+
+    private string ConvertNumber(int number)
+    {
+        return NumbersConverter.ConvertNumber(number);
     }
 
 }
