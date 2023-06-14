@@ -284,6 +284,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
       propertyPath: _boosterWorkTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330912760802320254, guid: a7bdf73cde3470940a814202646822fa, type: 3}
+      propertyPath: _boosterMultiplier
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8661490660916043337, guid: a7bdf73cde3470940a814202646822fa, type: 3}
